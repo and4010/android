@@ -1,0 +1,123 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@android:color/background_light</item>
+        <item name="buttonStyle">@style/AppTheme.ButtonStyle.Primary</item>
+        <item name="editTextStyle">@style/AppTheme.EditTextStyle</item>
+        <item name="alertDialogTheme">@style/AppTheme.AlertDialog</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay"
+           parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+            </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <!--input_text_style-->
+    <style name="AppTheme.TextInputLayoutAppearance.Success" parent="Widget.Design.TextInputLayout">
+        <!-- reference our hint & error styles -->
+        <item name="hintTextAppearance">@style/AppTheme.TextInputLayoutAppearance.HintTextAppearance</item>
+        <item name="errorTextAppearance">@style/AppTheme.TextInputLayoutAppearance.ErrorTextAppearance</item>
+        <item name="android:textColor">@color/theme_input_success_text</item>
+        <item name="android:textColorHint">@color/theme_input_success_hint</item>
+        <item name="colorControlNormal">@color/theme_input_success_normal</item>
+        <item name="colorControlActivated">@color/theme_input_success_activated</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayoutAppearance.Danger" parent="Widget.Design.TextInputLayout">
+        <!-- reference our hint & error styles -->
+        <item name="hintTextAppearance">@style/AppTheme.TextInputLayoutAppearance.HintTextAppearance</item>
+        <item name="errorTextAppearance">@style/AppTheme.TextInputLayoutAppearance.ErrorTextAppearance</item>
+        <item name="android:textColor">@color/theme_input_danger_text</item>
+        <item name="android:textColorHint">@color/theme_input_danger_hint</item>
+        <item name="colorControlNormal">@color/theme_input_danger_normal</item>
+        <item name="colorControlActivated">@color/theme_input_danger_activated</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayoutAppearance.ErrorTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/theme_input_error_text_appearance</item>
+        <item name="android:textSize">@dimen/text_size_m</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayoutAppearance.HintTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_s</item>
+    </style>
+
+    <style name="AppTheme.EditTextStyle" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:height">45dp</item>
+        <item name="android:textSize">@dimen/text_size_m</item>
+        <item name="android:clickable">true</item>
+        <item name="android:enabled">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+    <!--Button-->
+    <style name="AppTheme.ButtonStyle.ButtonStyle" parent="Base.Widget.AppCompat.Button">
+        <item name="android:textSize">@dimen/text_size_m</item>
+    </style>
+
+    <style name="AppTheme.ButtonStyle.Primary" parent="AppTheme.ButtonStyle.ButtonStyle">
+        <item name="android:background">@drawable/btn_primary_selector</item>
+        <item name="android:textColor">@drawable/btn_text_light_selector</item>
+    </style>
+
+    <style name="AppTheme.ButtonStyle.Success" parent="AppTheme.ButtonStyle.ButtonStyle">
+        <item name="android:background">@drawable/btn_success_selector</item>
+        <item name="android:textColor">@drawable/btn_text_light_selector</item>
+    </style>
+
+    <style name="AppTheme.Button.Warning" parent="AppTheme.ButtonStyle.ButtonStyle">
+        <item name="android:background">@drawable/btn_warning_selector</item>
+        <item name="android:textColor">@drawable/btn_text_dark_selector</item>
+    </style>
+
+    <style name="AppTheme.Button.Danger" parent="AppTheme.ButtonStyle.ButtonStyle">
+        <item name="android:background">@drawable/btn_danger_selector</item>
+        <item name="android:textColor">@drawable/btn_text_light_selector</item>
+    </style>
+
+    <style name="AppTheme.Button.Info" parent="AppTheme.ButtonStyle.ButtonStyle">
+        <item name="android:background">@drawable/btn_info_selector</item>
+        <item name="android:textColor">@drawable/btn_text_dark_selector</item>
+    </style>
+
+    <style name="AppTheme.Button.Transfer" parent="AppTheme.ButtonStyle.ButtonStyle">
+        <item name="android:background">@drawable/btn_transfer_selector</item>
+        <item name="android:textColor">@drawable/btn_text_dark_selector</item>
+    </style>
+
+    <style name="AppTheme.Button.gradation" parent="AppTheme.ButtonStyle.ButtonStyle">
+        <item name="android:background">@drawable/btn_gradation_selector</item>
+        <item name="android:textColor">@drawable/btn_text_light_selector</item>
+    </style>
+
+    <!--Dialog Full Screen-->
+    <style name="AppTheme.Dialog.FullScreen" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!--AlertDialog-->
+    <style name="AppTheme.AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorText</item>
+        <item name="android:textSize">@dimen/text_size_xl</item>
+    </style>
+
+
+</resources>

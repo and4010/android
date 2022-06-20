@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+            <TextView
+                android:id="@+id/inputtext_dialog_title"
+                style="@style/dialog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/inputtext_dialog_rootLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputtext_dialog_title">
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/inputtext_dialog_confirm_button"
+                style="@style/outer_gray_button"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp"
+                android:text="confirm"
+                app:layout_constraintEnd_toStartOf="@id/inputtext_dialog_cancel_button"
+                app:layout_constraintTop_toBottomOf="@id/inputtext_dialog_rootLinearLayout"/>
+
+            <Button
+                android:id="@+id/inputtext_dialog_cancel_button"
+                style="@style/outer_gray_button"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="20dp"
+                android:text="cancel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputtext_dialog_rootLinearLayout"/>
+            
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

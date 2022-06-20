@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+            <import type="android.view.View"/>
+        <variable
+                name="viewModel"
+                type="com.user.example.model.MeatCartonDemoViewModel"/>
+    </data>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            <Button
+                    android:text="選擇自訂規則"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnCustomBarcode"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/sdtBarcode"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="5dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.2"
+                    android:onClick="@{() ->viewModel.selectBarcodeRule()}"/>
+
+            <Button
+                    android:text="取消固定規則"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnCancelCustomBarcode"
+                    app:layout_constraintTop_toTopOf="@+id/btnCustomBarcode"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btnCustomBarcode"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnCustomBarcode"
+                    android:onClick="@{() ->viewModel.cancaelRule()}"
+                    android:visibility="@{viewModel.btnCancelVisibility? View.INVISIBLE : View.VISIBLE}"/>
+
+            <CheckBox
+                    android:text="GS1 優先"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chkGS1Fast"
+                    app:layout_constraintTop_toTopOf="@+id/btnCustomBarcode"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btnCustomBarcode"
+                    android:checked="@{viewModel.chkGS1fFirst}"
+                    android:onClick="@{viewModel.onGs1CheckedChanged}"
+                    android:visibility="@{viewModel.chkGS1Visibility? View.INVISIBLE : View.VISIBLE}"
+            />
+
+            <CheckBox
+                    android:text="自動固定規則"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chkAutoFixRule"
+                    app:layout_constraintTop_toBottomOf="@+id/chkGS1Fast"
+                    app:layout_constraintLeft_toLeftOf="@+id/chkGS1Fast"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnCustomBarcode"
+                    android:checked="@{viewModel.chkAutoFixRule}"
+                    android:onClick="@{viewModel.onAutoFixCheckedChanged}"
+                    android:visibility="@{viewModel.chkAutoVisibility? View.INVISIBLE : View.VISIBLE}"
+            />
+
+            <com.biotech.framework.view.StandardEditText
+                    android:id="@+id/sdtBarcode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/ui_margin_m"
+                    android:hint="請輸入條碼..."
+                    android:title="條碼"
+                    android:textSize="@dimen/text_size_s"
+                    android:icon="@drawable/ic_delete"
+                    app:pattern="standard"
+                    android:inputType="text"
+                    android:background="@drawable/input_background_selector"
+                    app:layout_constraintTop_toBottomOf="@+id/btnCustomBarcode"
+                    app:layout_constraintBottom_toTopOf="@+id/txtName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:selectAllOnFocus="true"
+                    app:editTextValue="@={viewModel.observableText}"
+                    app:getButton="@{() ->viewModel.getClear()}"/>
+
+            <com.biotech.framework.view.StandardTextView
+                    android:id="@+id/txtName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/ui_margin_s"
+                    android:layout_marginStart="@dimen/ui_margin_s"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:background="@drawable/view_bg_border_shadowed"
+                    app:layout_constraintTop_toBottomOf="@+id/sdtBarcode"
+                    app:layout_constraintBottom_toTopOf="@+id/txtGtin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:title="名稱"
+                    android:textSize="@dimen/text_size_s"
+
+
+            />
+
+            <com.biotech.framework.view.StandardTextView
+                    android:id="@+id/txtGtin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ui_margin_s"
+                    android:layout_marginStart="@dimen/ui_margin_s"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:background="@drawable/view_bg_border_shadowed"
+                    app:layout_constraintTop_toBottomOf="@+id/txtName"
+                    app:layout_constraintBottom_toTopOf="@+id/txtSerialNumber"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:title="Gtin"
+                    android:textSize="@dimen/text_size_s"
+            />
+
+            <com.biotech.framework.view.StandardTextView
+                    android:id="@+id/txtSerialNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ui_margin_s"
+                    android:layout_marginStart="@dimen/ui_margin_s"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:background="@drawable/view_bg_border_shadowed"
+                    app:layout_constraintTop_toBottomOf="@+id/txtGtin"
+                    app:layout_constraintBottom_toTopOf="@+id/txtBatchLotNumber"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:title="序號"
+                    android:textSize="@dimen/text_size_s"
+                    android:icon="@drawable/ic_delete"
+                    app:layout_constraintHorizontal_bias="1.0"/>
+            <com.biotech.framework.view.StandardTextView
+                    android:id="@+id/txtBatchLotNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ui_margin_s"
+                    android:layout_marginStart="@dimen/ui_margin_s"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:background="@drawable/view_bg_border_shadowed"
+                    app:layout_constraintTop_toBottomOf="@+id/txtSerialNumber"
+                    app:layout_constraintBottom_toTopOf="@+id/txtPackageDate"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:title="批號"
+                    android:textSize="@dimen/text_size_s"
+                    android:icon="@drawable/ic_delete"
+            />
+
+            <com.biotech.framework.view.StandardTextView
+                    android:id="@+id/txtPackageDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ui_margin_s"
+                    android:layout_marginStart="@dimen/ui_margin_s"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:background="@drawable/view_bg_border_shadowed"
+                    app:layout_constraintTop_toBottomOf="@+id/txtBatchLotNumber"
+                    app:layout_constraintBottom_toTopOf="@+id/txtExpiredDate"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/txtDeliveryDate"
+                    android:title="包裝日期"
+                    android:textSize="@dimen/text_size_s"
+                    android:icon="@drawable/ic_delete"
+            />
+
+            <com.biotech.framework.view.StandardTextView
+                    android:id="@+id/txtDeliveryDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:background="@drawable/view_bg_border_shadowed"
+                    app:layout_constraintTop_toTopOf="@+id/txtPackageDate"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtPackageDate"
+                    app:layout_constraintStart_toEndOf="@+id/txtPackageDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:title="出廠日期"
+                    android:textSize="@dimen/text_size_s"
+                    android:icon="@drawable/ic_delete"
+            />
+
+            <com.biotech.framework.view.StandardTextView
+                    android:id="@+id/txtExpiredDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ui_margin_s"
+                    android:layout_marginStart="@dimen/ui_margin_s"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:background="@drawable/view_bg_border_shadowed"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPackageDate"
+                    app:layout_constraintBottom_toTopOf="@+id/txtWeight"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/txtHarvestDate"
+                    android:title="有效日期"
+                    android:textSize="@dimen/text_size_s"
+                    android:icon="@drawable/ic_delete"
+            />
+
+            <com.biotech.framework.view.StandardTextView
+                    android:id="@+id/txtHarvestDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:background="@drawable/view_bg_border_shadowed"
+                    app:layout_constraintTop_toTopOf="@+id/txtExpiredDate"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtExpiredDate"
+                    app:layout_constraintStart_toEndOf="@+id/txtExpiredDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:title="收成日期"
+                    android:textSize="@dimen/text_size_s"
+                    android:icon="@drawable/ic_delete"
+            />
+
+            <com.biotech.framework.view.StandardTextView
+                    android:id="@+id/txtWeight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ui_margin_s"
+                    android:layout_marginStart="@dimen/ui_margin_s"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:background="@drawable/view_bg_border_shadowed"
+                    app:layout_constraintTop_toBottomOf="@+id/txtExpiredDate"
+                    app:layout_constraintBottom_toTopOf="@+id/listAI"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:title="重量"
+                    android:textSize="@dimen/text_size_s"
+                    android:icon="@drawable/ic_delete"
+            />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listAI"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ui_margin_s"
+                    android:layout_marginBottom="@dimen/ui_margin_s"
+                    android:layout_marginStart="@dimen/ui_margin_s"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:padding="@dimen/ui_padding_s"
+                    android:orientation="horizontal"
+                    android:background="@drawable/input_background_selector"
+                    app:layout_constraintTop_toBottomOf="@+id/txtWeight"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

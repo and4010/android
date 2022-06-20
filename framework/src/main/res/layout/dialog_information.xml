@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/ui_margin_l"
+        android:layout_marginStart="@dimen/ui_margin_l"
+        android:layout_gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/corner_round_white"
+            android:paddingBottom="@dimen/ui_padding_l"
+            android:paddingTop="@dimen/ui_padding_s"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dialog_close_button_size"
+                android:layout_marginStart="@dimen/ui_margin_s"
+                android:layout_marginBottom="@dimen/ui_margin_m"
+                android:layout_marginTop="@dimen/ui_margin_s"
+                android:textColor="@color/colorDarkGray"
+                android:background="@android:color/transparent"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text=""
+                android:textSize="@dimen/text_size_xl"
+                android:gravity="center_horizontal" />
+            <ScrollView
+                android:id="@+id/scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:layout_margin="@dimen/ui_margin_s">
+
+                <TextView
+                    android:id="@+id/text_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorDarkGray"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text=""
+                    android:lineSpacingExtra="3dp"
+                    android:textSize="@dimen/text_size_l" />
+            </ScrollView>
+
+            <Button
+                android:id="@+id/dialog_button_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/ui_margin_xxl"
+                android:layout_marginEnd="@dimen/ui_margin_xxl"
+                android:background="@drawable/button_shape_blue"
+                android:layout_gravity="center_horizontal"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:focusedByDefault="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_m"
+                android:text="確定"
+                />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/dialog_button_close"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="fitCenter"
+            android:padding="1dp"
+            android:layout_margin="@dimen/ui_margin_xs"
+            android:background="@android:color/transparent"
+            android:layout_gravity="end|top"
+            android:src="@drawable/button_close"
+            />
+    </FrameLayout>
+</FrameLayout>

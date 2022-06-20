@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryLight">#4DB6AC</color>
+    <color name="colorAccent">#d81b60</color>
+    <color name="colorText">#000000</color>
+    <!--<color name="colorAccount">#d81b60</color>-->
+    <!--<color name="colorAccountHint">#bd1511f7</color>-->
+    <!--<color name="colorToolbar">#530f22e2</color>-->
+    <!--<color name="blackfont">#000000</color>-->
+    <!--<color name="Hint">#9fdbdf1c</color>-->
+    <!--<color name="input_text">#111fdc</color>-->
+
+
+    <!--Button -->
+    <color name="theme_btn_info">#b3b3b3</color>
+    <color name="theme_btn_border_info">#707070</color>
+
+    <color name="theme_btn_success">#28a745</color>
+    <color name="theme_btn_border_success">#00781b</color>
+
+    <color name="theme_btn_warning">#ffc107</color>
+    <color name="theme_btn_border_warning">#b48908</color>
+
+    <color name="theme_btn_danger">#dc3545</color>
+    <color name="theme_btn_border_danger">#a42834</color>
+
+    <color name="theme_btn_dark">#343a40</color>
+    <color name="theme_btn_border_dark">#292e31</color>
+
+    <color name="theme_btn_text_light">#f8f9fa</color>
+    <color name="theme_btn_text_dark">#212121</color>
+
+    <color name="theme_btn_pressed">#232029</color>
+    <color name="theme_btn_disabled">#c6c6c6</color>
+    <color name="theme_btn_border_disabled">#4d4d4d</color>
+
+    <color name="them_btn_transfer">#f0161a</color>
+    <color name="them_btn_transfer_start">#f0161a</color>
+    <color name="them_btn_transfer_end">#f27a7a</color>
+
+    <color name="them_btn_gradation">#aaa</color>
+    <color name="them_btn_gradation_start">#77e6e9</color>
+    <color name="them_btn_gradation_end">#1D2C50</color>
+    <color name="them_btn_gradation_pressed">#538394</color>
+    <color name="them_btn_gradation_start_pressed">#d4106e41</color>
+    <color name="them_btn_gradation_end_pressed">#07691a</color>
+
+    <color name="them_btn_background">#FFBB33</color>
+
+    <!--InputTextLayout-->
+    <color name="theme_input_error_text_appearance">#a42834</color>
+
+    <color name="theme_input_success_normal">#006316</color>
+    <color name="theme_input_success_activated">#00891f</color>
+    <color name="theme_input_success_hint">#898989</color>
+    <color name="theme_input_success_text">#212121</color>
+
+    <color name="theme_input_danger_normal">#a42834</color>
+    <color name="theme_input_danger_activated">#dc3545</color>
+    <color name="theme_input_danger_hint">#898989</color>
+    <color name="theme_input_danger_text">#212121</color>
+
+
+    <color name="theme_input_border_focused">#d81b60</color>
+    <color name="theme_input_border">#3f3f3f</color>
+    <color name="theme_input_border_disabled">#5d5d5d</color>
+    <color name="theme_input_background">#F0F0F0</color>
+    <color name="theme_input_background_disabled">#8e8e8e</color>
+</resources>

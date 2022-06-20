@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:id="@+id/lineAction"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/lineResult"
+
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintVertical_weight="2" >
+        <Button
+                android:text="下載檔案"
+                android:drawableStart="@drawable/ic_file_download_light"
+                android:paddingStart="@dimen/ui_margin_s"
+                android:paddingEnd="@dimen/ui_margin_s"
+                style="@style/AppTheme.Button.Danger"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/ui_margin_s"
+                android:id="@+id/btnDownloadFile"
+                android:layout_weight="1"
+        />
+
+        <Button
+                android:text="上傳檔案"
+                android:drawableStart="@drawable/ic_file_upload"
+                android:paddingStart="@dimen/ui_margin_s"
+                android:paddingEnd="@dimen/ui_margin_s"
+                style="@style/AppTheme.Button.Warning"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/ui_margin_s"
+                android:id="@+id/btnUploadFile"
+                android:layout_weight="1"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/lineResult"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/ui_margin_s"
+            android:orientation="horizontal"
+
+            app:layout_constraintTop_toBottomOf="@id/lineAction"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/lineMessage"
+
+            app:layout_constraintVertical_weight="1" >
+        <TextView
+                android:text="結果："
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/txtCode"
+                android:layout_weight="3" />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/txtCodeValue"
+                android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/lineMessage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/ui_margin_s"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/lineResult"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintVertical_weight="8" >
+        <TextView
+                android:text="訊息："
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/txtMessage"
+                android:layout_weight="3" />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/txtMessageValue"
+                android:layout_weight="1" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

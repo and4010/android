@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 按下状态：(01) true表示按下，例如，Button被按下； (02) false表示非按下。 -->
+    <item  android:drawable="@drawable/button_template" android:state_selected="false" android:state_pressed="true"/>
+</selector>

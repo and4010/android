@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <variable name="viewModel" type="com.user.example.viewmodel.BluetoothSetViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:id="@+id/line1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/ui_margin_xs"
+                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/line2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+            <TextView
+                    android:text="設定檔："
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:textSize="@dimen/text_size_s"
+                    android:layout_weight="8"
+                    android:textAlignment="viewEnd"/>
+            <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/bluetoothSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_s"
+                    android:layout_weight="3"
+                    style="@android:style/Widget.Holo.Light.Spinner"
+            />
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/ui_margin_xs"
+                android:id="@+id/line2"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line1"
+                app:layout_constraintBottom_toTopOf="@+id/line3">
+            <TextView
+                    android:text="名稱："
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    android:textSize="@dimen/text_size_s"
+                    android:layout_weight="8"
+                    android:textAlignment="viewEnd"/>
+            <EditText
+                    android:id="@+id/blue_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:textSize="@dimen/text_size_s"
+                    android:text="@={viewModel.deviceName}"
+                    />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/line3"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/ui_margin_xs"
+                android:orientation="horizontal"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line2"
+                app:layout_constraintBottom_toTopOf="@+id/line4">
+            <TextView
+                    android:text="位址："
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView3"
+                    android:textSize="@dimen/text_size_s"
+                    android:layout_weight="8"
+                    android:textAlignment="viewEnd"
+            />
+            <EditText
+                    android:id="@+id/blue_mac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:inputType="textPersonName"
+                    android:textSize="@dimen/text_size_s"
+                    android:ems="10"
+                    android:text="@={viewModel.deviceAddress}"
+                    />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/line4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/ui_margin_s"
+                android:orientation="horizontal"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintTop_toBottomOf="@+id/line3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/line5">
+            <Button
+                    android:text="搜尋"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:id="@+id/btnSearch"
+                    style="@style/AppTheme.Button.Info"
+                    android:drawableStart="@drawable/ic_search"
+                    android:paddingStart="@dimen/ui_padding_s"
+                    android:paddingEnd="@dimen/ui_padding_s"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.discoveryDevices()}"
+            />
+            <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:text="儲存"
+                    android:drawableStart="@drawable/ic_save_light"
+                    android:paddingStart="@dimen/ui_padding_s"
+                    android:paddingEnd="@dimen/ui_padding_s"
+                    android:onClick="@{() -> viewModel.askForSave()}"
+                    android:layout_weight="1"
+            />
+            <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="刪除"
+                    style="@style/AppTheme.Button.Danger"
+                    android:drawableStart="@drawable/ic_trashcan_light"
+                    android:paddingStart="@dimen/ui_padding_s"
+                    android:paddingEnd="@dimen/ui_padding_s"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.askForDelete() }"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/line5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/ui_margin_s"
+                android:orientation="horizontal"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintTop_toBottomOf="@+id/line4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/blueRecyclerView">
+            <Button
+                    android:id="@+id/btnPair"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:text="配對"
+                    style="@style/AppTheme.ButtonStyle.Success"
+                    android:drawableStart="@drawable/ic_trashcan_light"
+                    android:paddingStart="@dimen/ui_padding_s"
+                    android:paddingEnd="@dimen/ui_padding_s"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.pairDevice()}"
+            />
+            <Button
+                    android:text="接收"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/ui_margin_s"
+                    android:id="@+id/btnReceive"
+                    style="@style/AppTheme.Button.Info"
+                    android:drawableStart="@drawable/ic_search"
+                    android:paddingStart="@dimen/ui_padding_s"
+                    android:paddingEnd="@dimen/ui_padding_s"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.receive()}"
+            />
+            <Button
+                    android:text="傳送"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnTransfer"
+                    style="@style/AppTheme.Button.Info"
+                    android:drawableStart="@drawable/ic_search"
+                    android:paddingStart="@dimen/ui_padding_s"
+                    android:paddingEnd="@dimen/ui_padding_s"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.connectAndSend()}"
+            />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/blueRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/ui_margin_xs"
+                android:textSize="@dimen/text_size_s"
+                app:layout_constraintVertical_weight="9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line5"
+                android:background="@drawable/background_line_recyclerview"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:id="@+id/nav_group"
+           android:checkableBehavior="single"
+           android:visible="false">
+        <item
+                android:id="@+id/nav_gallery"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="Gallery"/>
+
+        <item
+                android:id="@+id/nav_usb_transfer"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="USB傳輸"/>
+        <item
+                android:id="@+id/nav_meat_carton_demo"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="肉品條碼展示"/>
+        <item
+                android:id="@+id/nav_bluetooth"
+                android:icon="@drawable/ic_menu_print"
+                android:title="藍芽設備設定"/>
+
+        <item
+                android:id="@+id/nav_template_input_field"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="文字欄位樣式"/>
+        <item
+                android:id="@+id/nav_template_button"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="按鈕樣式"/>
+
+        <item
+                android:id="@+id/nav_tone_button"
+                android:icon="@drawable/outline_music_note_24"
+                android:title="聲音樣式"/>
+
+        <item
+                android:id="@+id/nav_loading_dialog_button"
+                android:icon="@drawable/outline_refresh_24"
+                android:title="LoadingDialog"/>
+    </group>
+
+
+    <item android:title="控制項">
+        <menu>
+            <!--<item-->
+                    <!--android:id="@+id/nav_share"-->
+                    <!--android:icon="@drawable/ic_menu_share"-->
+                    <!--android:title="Share"/>-->
+            <!--<item-->
+                    <!--android:id="@+id/nav_send"-->
+                    <!--android:icon="@drawable/ic_menu_send"-->
+                    <!--android:title="Send"/>-->
+            <item
+                    android:id="@+id/nav_login"
+                    android:icon="@drawable/ic_menu_logout"
+                    android:title="登入"
+                    android:textSize="@dimen/text_size_l"/>
+        </menu>
+    </item>
+
+</menu>
